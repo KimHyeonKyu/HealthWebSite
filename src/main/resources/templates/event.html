@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠폰/이벤트</title>
+    <link rel="stylesheet" href="css/eventStyle.css">
+</head>
+<body>
+    <header>
+        <div class="headContent">
+            <h2 class="title">
+                <img class="logo" src="homePicture/healthLogo.PNG">
+                <p>S휘트니스</p>
+            </h2>
+            <ul class="toolBar">
+                <li class="headTrainer"><a href="trainer">트레이너</a></li>
+                <li><a href="event">쿠폰/이벤트</a></li>
+                <li id="viewStore"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">스토어</a></li>
+                <li id="viewMyPage"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">마이페이지</a></li>
+                <li><a class="inform" href="useInform">이용안내</a></li>
+                <li class="login" id="log"><a href="logIn" id="taglogIn">로그인</a></li>
+                <li id="viewJoin"><a href="join">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+    </header>
+    <div class="contentWrap">
+        <div class="content">
+            <p class="eventTitle">
+                이벤트
+            </p>
+            <div class="event1">
+                <p>22.4월 봄 이벤트!</p>
+                <p>헬스+필라테스 3개월 36만 -> 24만원</p>  
+                <ul>
+                    <li>쿠폰은 모바일에서 사용할 수 있습니다.</li>
+                    <li>선착순 20명</li>
+                </ul>    
+            </div>
+            <div class="event2">
+                <p>22.4월 봄 이벤트!</p>
+                <p>헬스+필라테스 12개월 -> 60만원</p>  
+                <ul>
+                    <li>쿠폰은 모바일에서 사용할 수 있습니다.</li>
+                    <li>선착순 10명</li>
+                </ul>    
+            </div>
+        </br>
+            <div class="event3">
+                <p>22.4월 봄 이벤트!</p>
+                <p>PT20회 189만 -> 99만원!</p>  
+                <ul>
+                    <li>쿠폰은 모바일에서 사용할 수 있습니다.</li>
+                    <li>선착순 10명</li>
+                </ul>    
+            </div>
+            <div class="event4">
+                <p>22.4월 봄 이벤트!</p>
+                <p>그룹 기구 필라테스 3개월 + 휘트니스무료 제공! -> 39만원</p>  
+                <ul>
+                    <li>쿠폰은 모바일에서 사용할 수 있습니다.</li>
+                    <li>선착순 10명</li>
+                </ul>    
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContent">
+            <img class="foot1" src="homePicture/footer1.PNG">
+            <img class="foot2" src="homePicture/footer2.PNG">
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        if ([[${checkedLog}]] == "true"){
+            document.getElementById('log').innerHTML='<a href="home?checkedLog=false" id="taglogIn">로그아웃</a>';
+            document.getElementById('viewJoin').innerHTML='<a href="#"></a>';
+            document.getElementById('viewStore').innerHTML='<a href="store">스토어</a>';
+            document.getElementById('viewMyPage').innerHTML='<a href="myPage">마이페이지</a>';
+        }
+    </script>
+
+</body>
+    
+</html>

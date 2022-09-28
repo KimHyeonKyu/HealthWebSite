@@ -1,0 +1,181 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* 머릿말 */
+
+header{
+    position: fixed;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+
+    border-bottom: 2px solid gray;
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+body {
+    padding-top: 100px;
+    /* 생략 */
+  }
+
+.headContent{
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    height: 100px;
+}
+
+
+header .title .logo{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+header .title .logo,
+header .title p{
+    float: left;
+}
+
+header .title{
+    width: 26%;
+}
+
+header ul{
+    float: right;
+    width: 74%;
+}
+
+header .title p{
+    margin-top: 32px;
+    margin-left: 10px;
+}
+
+header li{
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 4%;
+}
+
+
+header  .login{
+    margin-left: 15%;
+}
+.contentWrap{
+   background-color: bisque;
+   padding: 3.9%;
+}
+
+.content{
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.9%;
+    text-align: center;
+    background-color: white;
+}
+
+.content .storeTitle{
+    text-align: left;
+    font-size: 20px;
+    color: cornflowerblue;
+    border-bottom: 1px solid cornflowerblue;
+    margin-bottom: 20px;
+}
+
+
+.content img{
+    width: 400px;
+    height: 300px;
+}
+
+.content .trainer1,
+.content .trainer2,
+.content .pilates,
+.content .gym{
+    cursor: pointer;
+    width: 400px;
+    height: 400px;
+    border-bottom: 1px solid gray;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    display: inline-block;
+}
+
+.content .trainer1 .line1,
+.content .trainer2 .line1,
+.content .pilates .line1,
+.content .gym .line1{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: -1px;
+}
+
+.content .trainer1 .line2,
+.content .trainer2 .line2,
+.content .pilates .line2,
+.content .gym .line2{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.line2,
+.moneyUnit{
+    display: inline-block;
+}
+
+.moneyUnit{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.content .trainer2,
+.content .gym{
+    margin-left: 20px;
+}
+
+.content .pilates,
+.content .gym{
+    margin-top: 20px;
+}
+
+footer{
+    background-color: black;
+}
+
+.footerContent{
+    min-width: 85.93%;
+    max-width: 93.75%;
+    text-align: center;
+}
+
+.footerContent .foot1{
+    width: 500px;
+    height: 150px;
+}
+
+.footerContent .foot2{
+    margin-left: 200px;
+    width: 300px;
+    height: 150px;
+}
+
+

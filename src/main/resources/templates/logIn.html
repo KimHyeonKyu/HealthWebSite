@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="css/loginStyle.css">
+</head>
+<body>
+    <div id="wrap">
+        <p class="line1"><Strong>S</Strong> Fitness</p>
+        <p class="line2">언제, 어디서나, 누구나 즐겁게!</p>
+        <div class="loginForm">
+           <p>Login</p>
+           <p class="loginContent">회원전용 페이지 입니다. 로그인 후 이용하세요.</p>
+            <form name="f1" action="logInConfirm" method="post" onsubmit="return checkedBlank()">
+                <input type="text" id="id" name="id" placeholder="아이디 입력"><br>
+                <input type="password" id="password" name="password" placeholder="비밀번호 입력"><br>
+                <input type="submit" id="submit" value="로그인">
+            </form>
+        </div>
+    </div>
+    <script>
+        function checkedBlank(){
+            var id = document.f1.id.value;
+            var password = document.f1.password.value;
+
+            if(!id){
+                alert("아이디를 입력하세요.");
+                return false;
+            }else if(!password){
+                alert("비밀번호를 입력하세요.");
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
+    <script th:inline="javascript">
+         if([[${isNotExistId}]]){
+            alert("아이디가 존재하지 않습니다.");
+        }
+
+        if([[${isInCorrectPassword}]]){
+            alert("비밀번호가 아이디와 일치하지 않습니다.");
+        }
+    </script>
+</body>
+</html>

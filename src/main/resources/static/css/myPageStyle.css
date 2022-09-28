@@ -1,0 +1,133 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* 머릿말 */
+
+header{
+    position: fixed;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+
+    border-bottom: 2px solid gray;
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+body {
+    padding-top: 100px;
+    /* 생략 */
+  }
+
+.headContent{
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    height: 100px;
+}
+
+
+header .title .logo{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+header .title .logo,
+header .title p{
+    float: left;
+}
+
+header .title{
+    width: 26%;
+}
+
+header ul{
+    float: right;
+    width: 74%;
+}
+
+header .title p{
+    margin-top: 32px;
+    margin-left: 10px;
+}
+
+
+
+header li{
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 4%;
+}
+
+
+header  .login{
+    margin-left: 15%;
+}
+
+.contentWrap {
+    background-color: bisque;
+    padding: 3.9%;
+}
+
+.content {
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3.9%;
+    background-color: white;
+}
+
+.content p{
+    font-size: 30px;
+    margin-bottom: 3%;
+}
+
+.content table{
+    border: 1px solid black;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.content th, td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+footer{
+    background-color: black;
+}
+
+.footerContent{
+    min-width: 85.93%;
+    max-width: 93.75%;
+    text-align: center;
+}
+
+.footerContent .foot1{
+    width: 500px;
+    height: 150px;
+}
+
+.footerContent .foot2{
+    margin-left: 200px;
+    width: 300px;
+    height: 150px;
+}

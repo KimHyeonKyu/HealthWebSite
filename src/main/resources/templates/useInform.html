@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이용안내</title>
+    <link rel="stylesheet" href="css/useInformStyle.css">
+</head>
+<body>
+    <header>
+        <div class="headContent">
+            <h2 class="title">
+                <img class="logo" src="homePicture/healthLogo.PNG">
+                <p>S휘트니스</p>
+            </h2>
+            <ul class="toolBar">
+                <li class="headTrainer"><a href="trainer">트레이너</a></li>
+                <li><a href="event">쿠폰/이벤트</a></li>
+                <li id="viewStore"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">스토어</a></li>
+                <li id="viewMyPage"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">마이페이지</a></li>
+                <li><a class="inform" href="useInform">이용안내</a></li>
+                <li class="login" id="log"><a href="logIn" id="taglogIn">로그인</a></li>
+                <li id="viewJoin"><a href="join">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="contentWrap">
+        <div class="content">
+            <div class="sales">
+                <p class="informTitle">이용 안내</p>
+                <p class="secondTitle">영업시간</p>
+                <p class="lastContent">평일 : 00:00 ~ 24:00</br></br>
+                    주말 : 10:00 ~ 20:00</br></br>
+                    공휴일 : 10:00 ~ 20:00</br></br>
+                    365일 연중무휴 운영 됩니다!</p>
+            </div>
+            <div class="consulting">
+                <p class="secondTitle">상담 안내</p>
+                <p>전화 상담</p></br></br>
+                <P>카카오톡 상담</P></br></br>
+                <P class="lastContent">방문 상담</P>
+            </div>
+            <div class="parking">
+                <p class="secondTitle">주차 안내</p>
+                <p>세시간 무료 주차 가능합니다.</p></br>
+                <P>주차장은 넓게 되어 있으며 편하게 이용하시면 됩니다.</P></br></br>
+                <P class="lastContent">지하주차장 이용 가능합니다.</P></br>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footerContent">
+            <img class="foot1" src="homePicture/footer1.PNG">
+            <img class="foot2" src="homePicture/footer2.PNG">
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        if ([[${checkedLog}]] == "true"){
+            document.getElementById('log').innerHTML='<a href="home?checkedLog=false" id="taglogIn">로그아웃</a>';
+            document.getElementById('viewJoin').innerHTML='<a href="#"></a>';
+            document.getElementById('viewStore').innerHTML='<a href="store">스토어</a>';
+            document.getElementById('viewMyPage').innerHTML='<a href="myPage">마이페이지</a>';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* 머릿말 */
+
+header{
+    position: fixed;
+    top: 0;
+    /* width: 100% */
+    left: 0;
+    right: 0;
+
+    border-bottom: 2px solid gray;
+    background-color: cadetblue;
+    color: aliceblue;
+}
+
+body {
+    padding-top: 100px;
+    /* 생략 */
+  }
+
+.headContent{
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    height: 100px;
+}
+
+
+header .title .logo{
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
+
+header .title .logo,
+header .title p{
+    float: left;
+}
+
+header .title{
+    width: 26%;
+}
+
+header ul{
+    float: right;
+    width: 74%;
+}
+
+header .title p{
+    margin-top: 32px;
+    margin-left: 10px;
+}
+
+
+
+header li{
+    display: inline-block;
+    margin-top: 40px;
+    margin-left: 4%;
+}
+
+
+header  .login{
+    margin-left: 15%;
+}
+
+.contentWrap{
+    background-color: bisque;
+    padding: 3.9%;
+}
+
+.content{
+    width: 90%;
+    min-width: 1100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3.9%;
+    text-align: center;
+    background-color: white;
+}
+
+.content .eventTitle{
+    text-align: left;
+    font-size: 20px;
+    color: cornflowerblue;
+    border-bottom: 1px solid cornflowerblue;
+    margin-bottom: 20px;
+}
+
+.content .event1,
+.content .event2,
+.content .event3,
+.content .event4{
+    background: linear-gradient(dodgerblue 70%, white 30%);
+    width: 500px;
+    height: 250px;
+    padding: 50px 0;
+    display: inline-block;
+}
+
+.content .event1 p,
+.content .event2 p,
+.content .event3 p,
+.content .event4 p{
+    color: white;
+}
+
+.content .event1 li,
+.content .event2 li,
+.content .event3 li,
+.content .event4 li{
+    text-align: left;
+    margin-left: 25px;
+}
+
+.content .event1 li:first-child,
+.content .event2 li:first-child,
+.content .event3 li:first-child,
+.content .event4 li:first-child{
+    margin-top: 120px;
+    margin-bottom: 5px;
+}
+
+.content .event1 p:first-child,
+.content .event2 p:first-child,
+.content .event3 p:first-child,
+.content .event4 p:first-child{
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.content .event1,
+.content .event2,
+.content .event3,
+.content .event4{
+    border-left: 1px solid black; 
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.content .event2
+.content .event4{
+    margin-left: 20px;
+}
+.content .event3{
+    margin-top: 20px;
+}
+
+footer{
+    background-color: black;
+}
+
+.footerContent{
+    min-width: 85.93%;
+    max-width: 93.75%;
+    text-align: center;
+}
+
+.footerContent .foot1{
+    width: 500px;
+    height: 150px;
+}
+
+.footerContent .foot2{
+    margin-left: 200px;
+    width: 300px;
+    height: 150px;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="css/joinStyle.css">
+
+</head>
+<body>
+    <header>
+        <div class="headContent">
+            <h2 class="title">
+                <img class="logo" src="homePicture/healthLogo.PNG">
+                <p>S휘트니스</p>
+            </h2>
+            <ul class="toolBar">
+                <li class="headTrainer"><a href="trainer">트레이너</a></li>
+                <li><a href="event">쿠폰/이벤트</a></li>
+                <li id="viewStore"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">스토어</a></li>
+                <li id="viewMyPage"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">마이페이지</a></li>
+                <li><a class="inform" href="useInform">이용안내</a></li>
+                <li class="login" id="log"><a href="logIn" id="taglogIn">로그인</a></li>
+                <li id="viewJoin"><a href="join">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="background">
+        <p class="imgContext">Register</p>
+    </div>
+    <div class="contentWrap">
+        <div class="content">
+            
+            <p class="introduce">s채널 회원가입을 위한 정보를 입력해 주세요.<br>
+                회원정보는 동의 없이 공개 및 유출되지 않으며 개인정보 보호정책에 의해 보호 받고 있습니다.
+            </p>
+            <fieldset>
+                <form name="f1" action="joinConfirm" method="get" onsubmit="return checkedBlank()">
+                    <p class="contentTitle">회원정보 입력</p><br><br>
+                    <p class="contentText">아이디&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="id" name="id" placeholder="아이디를 입력해주세요."></p><br>
+                    <p class="contentText">비밀번호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요."></p><br>
+                    <p class="contentText">비밀번호 확인&nbsp;
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" placeholder="비밀번호를 입력해주세요."></p><br>
+                    <p class="contentText">핸드폰 번호&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="phoneNumber" name="phoneNumber" placeholder="'-'빼고 입력해주세요"></p><br>
+                    <p class="contentText">이메일 주소&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="email" name="email"></p><br>
+                    <input class="contentButton" type="submit" id="submit" value="다음">
+                </form>
+            </fieldset>                
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContent">
+            <img class="foot1" src="homePicture/footer1.PNG">
+            <img class="foot2" src="homePicture/footer2.PNG">
+        </div>
+    </footer>
+
+    <script>
+        function checkedBlank(){
+            var id = document.f1.id.value;
+            var password = document.f1.password.value;
+            var passwordConfirm = document.f1.passwordConfirm.value;
+            var email = document.f1.email.value;
+            var phoneNumber = document.f1.phoneNumber.value;
+
+            if(!id){
+                alert("아이디를 입력해주세요!");
+                return false;
+            }else if(!password){
+                alert("비밀번호를 입력해주세요!");
+                return false;
+            }else if(!passwordConfirm){
+                alert("비밀번호 확인을 입력해주세요!");
+                return false;
+            }else if(password != passwordConfirm){
+                alert("비밀번호가 일치하지 않습니다!");
+                return false;
+            }else if(!phoneNumber) {
+                alert("번호를 입력해주세요");
+                return false;
+            }else if(!email){
+                alert("이메일을 입력해주세요!");
+                return false;
+            }else{
+                return true;
+            }
+        }
+    </script>
+
+    <script th:inline="javascript">
+      if ([[${checkedLog}]] == "true"){
+            document.getElementById('log').innerHTML='<a href="home?checkedLog=false" id="taglogIn">로그아웃</a>';
+            document.getElementById('viewJoin').innerHTML='<a href="#"></a>';
+            document.getElementById('viewStore').innerHTML='<a href="store">스토어</a>';
+            document.getElementById('viewMyPage').innerHTML='<a href="myPage">마이페이지</a>';
+        }
+         if([[${isExistId}]]){
+            alert("이미 존재하는 아이디 입니다.");
+        }
+    </script>
+
+</body>
+</html>

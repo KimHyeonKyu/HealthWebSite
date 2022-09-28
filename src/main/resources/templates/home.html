@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S피트니스</title>
+    <link rel="stylesheet" href="css/homeStyle.css">
+</head>
+
+<body>
+    <header>
+        <div class="headContent">
+            <h2 class="title">
+                <img class="logo" src="homePicture/healthLogo.PNG">
+                <p>S휘트니스</p>
+            </h2>
+            <ul class="toolBar">
+                <li class="headTrainer"><a href="trainer">트레이너</a></li>
+                <li><a href="event">쿠폰/이벤트</a></li>
+                <li id="viewStore"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">스토어</a></li>
+                <li id="viewMyPage"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">마이페이지</a></li>
+                <li><a class="inform" href="useInform">이용안내</a></li>
+                <li class="login" id="log"><a href="logIn" id="taglogIn">로그인</a></li>
+                <li id="viewJoin"><a href="join">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="contentWrap">
+            <div class="content">
+                <p class="con1" id="con1">
+                    강남구 논현동 1300평 프리미엄 휘트니스! 헬스, 퍼스널트레이닝, 전문 요가원, 전문 기구필라테스! 샐러드바, 요거트바,</br>
+                    쥬스바, 태닝, 바디스튜디오 입점! 다양한 시설을 한번에 즐길수 있는 복합문화공간!
+                </p>
+
+                <p class="introuduceTitle">
+                    소개
+                </p>
+
+                <img class="introducePicture" src="homePicture/introduce.PNG">
+                <p class="introduceContent">
+                    <strong>S휘트니스</strong></br></br>
+                    S휘트니스에 오신걸 환영합니다. S휘트니스는 강남구 논현동에 위치한 1300평 규모의 프리미엄 시설을 갖춘 헬스장으로 호텔보다 더 호텔 스럽게 엄격한 관리를 하고 있으며, 넓은
+                    공간,
+                    청결, 고객응대, 최고의 강사진, 명품 머신, 공기정화, 다양한 프로그램, 24시간운영, 365일 연중무휴, 합리적가격 등을 제공합니다. S휘트니스는 SuperBody란 뜻으로
+                    현재
+                    회원님의 몸을 최고의 컨디션으로 유지 시켜 드리기 위해 탄생한 공간입니다. 헬스, 퍼스널 트레이닝, 요가센터, 필라테스센터, 샐러드바, 쥬스바, 태닝, 바디 프로필 스튜디오가
+                    입점해 있어
+                    센터 내에서 건강과 미용에 필요한 모든 것을 제공합니다. S휘트니스는 5성급 호텔에서만 사용하는 이태리, 미국, 캐나다 명품 머신사용을 고집합니다. (라이프휘트니스, 테크노짐,
+                    싸이벡스,
+                    해머스트렝스, 파나타, 아틀란티스) S휘트니스는 전문적이고 높은 수준…
+                    </br></br>
+                    <strong>2022년 4월 봄맞이 이벤트! 선착순20명!</strong></br></br>
+                    <strong>헬스+요가 3개월 >> 24만원! 헬스+요가 6개월 >> 42만원!</strong>
+                </p>
+            </div>
+
+            <div class="facility">
+                <p class="facilityTitle">
+                    시설사진
+                </p>
+                <img class="row1" src="homePicture/facility1.PNG">
+                <img class="row1" src="homePicture/facility2.PNG">
+                <img class="row1" src="homePicture/facility3.PNG"></br>
+                <img class="row2" src="homePicture/facility4.PNG">
+                <img class="row2" src="homePicture/facility5.PNG">
+                <img class="row2" src="homePicture/facility6.PNG"></br>
+                <img class="row3" src="homePicture/facility7.PNG">
+                <img class="row3" src="homePicture/facility8.PNG">
+            </div>
+        
+    </div>
+    <footer>
+        <div class="footerContent">
+            <img class="foot1" src="homePicture/footer1.PNG">
+            <img class="foot2" src="homePicture/footer2.PNG">
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        if ([[${checkedLog}]] == "true"){
+            document.getElementById('log').innerHTML='<a href="home?checkedLog=false" id="taglogIn">로그아웃</a>';
+            document.getElementById('viewJoin').innerHTML='<a href="#"></a>';
+            document.getElementById('viewStore').innerHTML='<a href="store">스토어</a>';
+            document.getElementById('viewMyPage').innerHTML='<a href="myPage">마이페이지</a>';
+        }
+    </script>
+
+</body>
+
+</html>

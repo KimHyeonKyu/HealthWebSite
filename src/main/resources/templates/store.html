@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/storeStyle.css">
+    <title>스토어</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+</head>
+
+<script>
+        $(document).ready(function () {
+            $('#charge_kakao1, #charge_kakao2, #charge_kakao3, #charge_kakao4').click(function () {
+                console.log("test")
+                // getter
+                var IMP = window.IMP;
+                IMP.init("imp37470158");
+                var money = '';
+                var name = '';
+                console.log($(this).attr('name'));
+
+                if ($(this).attr('name') == '이강길 트레이너 PT 체험권') {
+                    money = $('.trainer1 .line2').text();
+                    name = $(this).attr('name');
+                }else if ($(this).attr('name') == '권세원 트레이너 PT 체험권') {
+                    money = $('.trainer2 .line2').text();
+                    name = $(this).attr('name');
+                }else if ($(this).attr('name') == '1대1 필라테스') {
+                    money = $('.pilates .line2').text();
+                    name = $(this).attr('name');
+                }else if ($(this).attr('name') == '휘트니스 + 무료 PT') {
+                    money = $('.gym .line2').text();
+                    name = $(this).attr('name');
+                }
+
+                console.log(money);
+
+                IMP.request_pay({
+                    pg: 'kakaopay',
+                    merchant_uid: 'merchant_' + new Date().getTime(),
+
+                    name: $(this).attr('name'),
+                    amount: money,
+                    buyer_email: 'ned1746@gmail.com',
+                    buyer_name: '김현규',
+                    buyer_tel: '010-2964-1746',
+                    buyer_addr: '경기도 수원시',
+                    buyer_postcode: '123-456'
+                }, function (rsp) {
+                    console.log(rsp);
+                    if (rsp.success) {
+                        var msg = '결제가 완료되었습니다.';
+
+                        var reqURL = "http://localhost:8081/test"; // 요청 주소
+
+    		            var jsonData = {
+    		        		"goodsName" : name,
+    			        	"price" : money
+    		        	};
+
+    	            	console.log("");
+    	            	console.log("[requestPostBodyJson] : [request url] : " + reqURL);
+    	            	console.log("[requestPostBodyJson] : [request data] : " + JSON.stringify(jsonData));
+    	            	console.log("[requestPostBodyJson] : [request method] : " + "POST BODY JSON");
+    		            console.log("");
+
+                        $.ajax({
+                            type: "POST",
+                            url: reqURL, //충전 금액값을 보낼 url 설정,
+                            async: true,
+                            timeOut: 5000,
+                            data: JSON.stringify(jsonData),
+                            dataType: JSON,
+                            contentType: "application/json; charset=utf-8",
+                            success: function(response) {
+    				            console.log("");
+    				            console.log("[requestPostBodyJson] : [response] : " + JSON.stringify(response));
+    				            console.log("");
+    			            },
+
+    		            	error: function(xhr) {
+                                console.log("");
+                                console.log("[requestPostBodyJson] : [error] : " + JSON.stringify(xhr));
+                                console.log("");
+                            },
+
+                            complete:function(data,textStatus) {
+                                console.log("");
+                                console.log("[requestPostBodyJson] : [complete] : " + textStatus);
+                                console.log("");
+    		            	}
+                        });
+                    } else {
+                        var msg = '결제에 실패하였습니다.';
+                        msg += '에러내용 : ' + rsp.error_msg;
+                    }
+                    alert(msg);
+                });
+            });
+        });
+    </script>
+
+<body>
+    <header>
+        <div class="headContent">
+            <h2 class="title">
+                <img class="logo" src="homePicture/healthLogo.PNG">
+                <p>S휘트니스</p>
+            </h2>
+            <ul class="toolBar">
+                <li class="headTrainer"><a href="trainer">트레이너</a></li>
+                <li><a href="event">쿠폰/이벤트</a></li>
+                <li id="viewStore"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">스토어</a></li>
+                <li id="viewMyPage"><a href="#" onclick="alert('로그인 후 이용 가능합니다.')">마이페이지</a></li>
+                <li><a class="inform" href="useInform">이용안내</a></li>
+                <li class="login" id="log"><a href="logIn" id="taglogIn">로그인</a></li>
+                <li id="viewJoin"><a href="join">회원가입</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="contentWrap">
+        <div class="content">
+            <p class="storeTitle">스토어</p>
+            <div class=trainer1 onclick="location.href='#'" id="charge_kakao1"
+                 name="이강길 트레이너 PT 체험권">
+                <img src="storePicture/trainerLee.PNG"></br>
+                <p class="line1">[S휘트니스] 이강길 트레이너 1대1 PT(3회 체험)</p>
+                <p class="line2">1000</p>
+                <p class="moneyUnit">원</p>
+            </div>
+            <div class=trainer2 onclick="location.href='#'" id="charge_kakao2"
+                 name="권세원 트레이너 PT 체험권">
+                <img src="storePicture/trainerGyeon.PNG"></br>
+                <p class="line1">[S휘트니스] 권세원 트레이너 1대1 PT(3회 체험)</p>
+                <p class="line2">2000</p>
+                <p class="moneyUnit">원</p>
+            </div>
+            <div class=pilates onclick="location.href='#'" id="charge_kakao3"
+                 name="1대1 필라테스">
+                <img src="storePicture/pilates.PNG"></br>
+                <p class="line1">[S휘트니스] 1대1 필라테스(1회 체험)</p>
+                <p class="line2">3000</p>
+                <p class="moneyUnit">원</p>
+            </div>
+            <div class=gym onclick="location.href='#'" id="charge_kakao4"
+                 name="휘트니스 + 무료 PT">
+                <img src="storePicture/gym.PNG"></br>
+                <p class="line1">[S휘트니스] 휘트니스 + 무료PT</p>
+                <p class="line2">4000</p>
+                <p class="moneyUnit">원</p>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footerContent">
+            <img class="foot1" src="homePicture/footer1.PNG">
+            <img class="foot2" src="homePicture/footer2.PNG">
+        </div>
+    </footer>
+
+    <script th:inline="javascript">
+        if ([[${checkedLog}]] == "true"){
+            document.getElementById('log').innerHTML='<a href="home?checkedLog=false" id="taglogIn">로그아웃</a>';
+            document.getElementById('viewJoin').innerHTML='<a href="#"></a>';
+            document.getElementById('viewStore').innerHTML='<a href="store">스토어</a>';
+            document.getElementById('viewMyPage').innerHTML='<a href="myPage">마이페이지</a>';
+        }
+    </script>
+
+</body>
+
+</html>
